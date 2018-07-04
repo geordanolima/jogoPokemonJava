@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:backgroundTint="@color/cor_input"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/background_light"
+                android:columnCount="2">
+
+                <TextView
+                    android:id="@+id/visaogeralNomeId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/texto_nome"
+                    android:textSize="@dimen/tamanho_texto" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:text="@string/texto_editar" />
+
+                <TextView
+                    android:id="@+id/visaogeralApelidoId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/texto_apelido"
+                    android:textSize="@dimen/tamanho_texto" />
+
+                <Button
+                    android:id="@+id/sairToEntrarId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/texto_sair" />
+
+                <TextView
+                    android:id="@+id/visaogeralPontos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_pontos"
+                    android:textSize="@dimen/tamanho_texto" />
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_botao"
+                android:text="@string/texto_criaturas_capturadas"
+                android:textSize="@dimen/tamanho_texto" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/background_light"
+                android:columnCount="2">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_criatura_x"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="@dimen/tamanho_texto" />
+
+                <Button
+                    android:id="@+id/botaoCriatura1Id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/texto_ver" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_criatura_x"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="@dimen/tamanho_texto" />
+
+                <Button
+                    android:id="@+id/botaoCriatura2Id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/texto_ver" />
+
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_botao"
+                android:text="@string/texto_itens"
+                android:textSize="@dimen/tamanho_texto" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnLoja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/BtnLoja" />
+
+                <RelativeLayout
+                    android:id="@+id/idBolinhaVermelha"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgBolaVermelha"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        app:srcCompat="@drawable/pokebola_red" />
+
+                    <TextView
+                        android:id="@+id/ItemBolaVermelha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="67dp"
+                        android:text="@string/PokVer" />
+
+                    <TextView
+                        android:id="@+id/QuantBolaVermelha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="29dp"
+                        android:text="TextView" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/idBolinhaAmarela"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgBolaAmarela"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        app:srcCompat="@drawable/ultraball" />
+
+                    <TextView
+                        android:id="@+id/ItemBolaAmarela"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="67dp"
+                        android:text="@string/PokAma" />
+
+                    <TextView
+                        android:id="@+id/QuantBolaAmarela"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="29dp"
+                        android:text="TextView" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/idBolinhaAzul"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgBolaAzul"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        app:srcCompat="@drawable/pokebola_blue" />
+
+                    <TextView
+                        android:id="@+id/ItemBolaAzul"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="67dp"
+                        android:text="@string/PokAzu" />
+
+                    <TextView
+                        android:id="@+id/QuantBolaAzul"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="29dp"
+                        android:text="TextView" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/idMelancia"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgMelancia"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        app:srcCompat="@drawable/melancialeite" />
+
+                    <TextView
+                        android:id="@+id/itemMelancia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="67dp"
+                        android:text="@string/Melancia" />
+
+                    <TextView
+                        android:id="@+id/QuantMelancia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="29dp"
+                        android:text="TextView" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/idOvo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgOvo"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        app:srcCompat="@drawable/ovo" />
+
+                    <TextView
+                        android:id="@+id/ItemOvo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="67dp"
+                        android:text="@string/OvoYoshi" />
+
+                    <TextView
+                        android:id="@+id/QuantOvo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="29dp"
+                        android:text="TextView" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_mundo" />
+    </LinearLayout>
+    </ScrollView>
