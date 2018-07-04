@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         Itens i4 = new Itens();
         Itens i5 = new Itens();
 
-
         startItens.add(i1);
         startItens.add(i2);
         startItens.add(i3);
@@ -112,19 +111,20 @@ public class MainActivity extends AppCompatActivity {
             senha=findViewById(R.id.nomeId);
             if (jogador.getNome().equals(nome.getText().toString())
                     && jogador.getSenha().equals(senha.getText().toString())){
-                setContentView(R.layout.perfiljogador);
-                Log.i("avancar:","avançou para tela visao geral");
-                botaosair=findViewById(R.id.sairToEntrarId);
-                botaosair.setOnClickListener(chamadaVoltarInicio);
-                botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
-                botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
-                botaoCriatura1.setOnClickListener(chamadaCriatura);
-                botaoCriatura2.setOnClickListener(chamadaCriatura);
-                botaoCriatura3.setOnClickListener(chamadaCriatura);
-                visaogeralNome=findViewById(R.id.visaogeralNomeId);
-                visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
-                visaogeralNome.setText(jogador.getNome().toString());
-                visaogeralApelido.setText(jogador.getApelido().toString());
+                IniciaPerfil();
+//                setContentView(R.layout.perfiljogador);
+//                Log.i("avancar:","avançou para tela visao geral");
+//                botaosair=findViewById(R.id.sairToEntrarId);
+//                botaosair.setOnClickListener(chamadaVoltarInicio);
+//                botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
+//                botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
+//                botaoCriatura1.setOnClickListener(chamadaCriatura);
+//                botaoCriatura2.setOnClickListener(chamadaCriatura);
+//                botaoCriatura3.setOnClickListener(chamadaCriatura);
+//                visaogeralNome=findViewById(R.id.visaogeralNomeId);
+//                visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
+//                visaogeralNome.setText(jogador.getNome().toString());
+//                visaogeralApelido.setText(jogador.getApelido().toString());
 
             }else {
                 Toast.makeText(getApplicationContext(),"Erro, tente novamente!",Toast.LENGTH_SHORT).show();
@@ -147,20 +147,21 @@ public class MainActivity extends AppCompatActivity {
     public View.OnClickListener chamadaCriaturaVoltar=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            setContentView(R.layout.perfiljogador);
-            Log.i("voltar: ","voltou para visualizacriatura");
-            botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
-            botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
-
-            botaoCriatura1.setOnClickListener(chamadaCriatura);
-            botaoCriatura2.setOnClickListener(chamadaCriatura);
-            botaoCriatura3.setOnClickListener(chamadaCriatura);
-            botaosair=findViewById(R.id.sairToEntrarId);
-            botaosair.setOnClickListener(chamadaVoltarInicio);
-            visaogeralNome=findViewById(R.id.visaogeralNomeId);
-            visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
-            visaogeralNome.setText(jogador.getNome().toString());
-            visaogeralApelido.setText(jogador.getApelido().toString());
+            IniciaPerfil();
+//            setContentView(R.layout.perfiljogador);
+//            Log.i("voltar: ","voltou para visualizacriatura");
+//            botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
+//            botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
+//
+//            botaoCriatura1.setOnClickListener(chamadaCriatura);
+//            botaoCriatura2.setOnClickListener(chamadaCriatura);
+//            botaoCriatura3.setOnClickListener(chamadaCriatura);
+//            botaosair=findViewById(R.id.sairToEntrarId);
+//            botaosair.setOnClickListener(chamadaVoltarInicio);
+//            visaogeralNome=findViewById(R.id.visaogeralNomeId);
+//            visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
+//            visaogeralNome.setText(jogador.getNome().toString());
+//            visaogeralApelido.setText(jogador.getApelido().toString());
         }
     };
 
@@ -208,45 +209,58 @@ public class MainActivity extends AppCompatActivity {
     public View.OnClickListener chamadaFimCadastro=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            setContentView(R.layout.perfiljogador);
+
             Log.i("fim: ","cadastrojogador concluido");
-            botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
-            botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
-
-            botaoCriatura1.setOnClickListener(chamadaCriatura);
-            botaoCriatura2.setOnClickListener(chamadaCriatura);
-            botaosair=findViewById(R.id.sairToEntrarId);
-            botaosair.setOnClickListener(chamadaVoltarInicio);
-            visaogeralNome=findViewById(R.id.visaogeralNomeId);
-            visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
-            visaogeralNome.setText(jogador.getNome().toString());
-            visaogeralApelido.setText(jogador.getApelido().toString());
-
-            int qtd;
-
-            Log.i("xxx","valor " + jogador.getItens().get(0).getQuantItem());
-            if ( jogador.getItens().get(0).getQuantItem() > 0 ){
-                findViewById(R.id.idBolinhaVermelha).setVisibility(View.GONE);
-            }
-            qtd = jogador.getItens().get(1).getQuantItem();
-            if (qtd > 0 ){
-                findViewById(R.id.idBolinhaAmarela).setVisibility(View.GONE);
-            }
-            qtd = jogador.getItens().get(2).getQuantItem();
-            if (qtd > 0 ){
-                findViewById(R.id.idBolinhaAzul).setVisibility(View.GONE);
-            }
-            qtd = jogador.getItens().get(3).getQuantItem();
-            if (qtd > 0 ){
-                findViewById(R.id.idMelancia).setVisibility(View.GONE);
-            }
-            qtd = jogador.getItens().get(4).getQuantItem();
-            if (qtd > 0 ){
-                findViewById(R.id.idOvo).setVisibility(View.GONE);
-            }
+            IniciaPerfil();
 
         }
     };
+
+    private void IniciaPerfil(){
+        setContentView(R.layout.perfiljogador);
+        botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
+        botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
+
+        botaoCriatura1.setOnClickListener(chamadaCriatura);
+        botaoCriatura2.setOnClickListener(chamadaCriatura);
+        botaosair=findViewById(R.id.sairToEntrarId);
+        botaosair.setOnClickListener(chamadaVoltarInicio);
+        visaogeralNome=findViewById(R.id.visaogeralNomeId);
+        visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
+        visaogeralNome.setText(jogador.getNome().toString());
+        visaogeralApelido.setText(jogador.getApelido().toString());
+
+        if ( jogador.getItens().get(0).getQuantItem() == 0 ){
+            findViewById(R.id.idBolinhaVermelha).setVisibility(View.GONE);
+        } else {
+            TextView qtd = (TextView)findViewById(R.id.QuantBolaVermelha);
+            qtd.setText(Integer.toString(jogador.getItens().get(0).getQuantItem()));
+        }
+        if (jogador.getItens().get(1).getQuantItem() == 0 ){
+            findViewById(R.id.idBolinhaAmarela).setVisibility(View.GONE);
+        } else {
+            TextView qtd = (TextView)findViewById(R.id.QuantBolaAmarela);
+            qtd.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
+        }
+        if (jogador.getItens().get(2).getQuantItem() == 0 ){
+            findViewById(R.id.idBolinhaAzul).setVisibility(View.GONE);
+        } else {
+            TextView qtd = (TextView)findViewById(R.id.QuantBolaAzul);
+            qtd.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
+        }
+        if (jogador.getItens().get(3).getQuantItem() == 0 ){
+            findViewById(R.id.idMelancia).setVisibility(View.GONE);
+        } else {
+            TextView qtd = (TextView)findViewById(R.id.QuantMelancia);
+            qtd.setText(Integer.toString(jogador.getItens().get(3).getQuantItem()));
+        }
+        if (jogador.getItens().get(4).getQuantItem() == 0 ){
+            findViewById(R.id.idOvo).setVisibility(View.GONE);
+        } else {
+            TextView qtd = (TextView)findViewById(R.id.QuantOvo);
+            qtd.setText(Integer.toString(jogador.getItens().get(4).getQuantItem()));
+        }
+    }
 
 
 } // FIM MainActivity
