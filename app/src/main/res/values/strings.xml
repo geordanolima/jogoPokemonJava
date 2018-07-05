@@ -58,7 +58,7 @@
     <string name="ValorPokAma">30</string>
     <string name="ValorMelancia">15</string>
     <string name="ValorOvo">50</string>
-    <string name="QuantPila">R$ 1000</string>
+    <string name="QuantPila">P$</string>
 
     <string name="BtnLoja">Loja</string>
 

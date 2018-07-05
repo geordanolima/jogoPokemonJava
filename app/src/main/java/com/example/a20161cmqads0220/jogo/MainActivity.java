@@ -18,11 +18,19 @@ public class MainActivity extends AppCompatActivity {
     private Button botaosair;
     private Button botaoCriatura1;
     private Button botaoCriatura2;
+    private Button botaoLoja;
     private Button botaoCriatura3;
     private Button botaoCriaturaVoltar;
     private Button botaoCadastrar;
     private Button botaoCadastrarFinal;
     private Button botaoFinalizaCadastro;
+
+    private Button addBolaVer;
+    private Button addBolaAma;
+    private Button addBolaAzu;
+    private Button addMelLeit;
+    private Button addOvoYosh;
+
     private TextView nome;
     private TextView senha;
     private TextView apelido;
@@ -31,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView visaogeralApelido;
     private TextView cadastroParte2Nome;
     private TextView cadastroParte2Apelido;
+    private TextView pilas;
+    private TextView valor;
     Jogador jogador = new Jogador();
     private ArrayList<criatura> startCriatura;
     private ArrayList<Itens> startItens;
@@ -112,20 +122,6 @@ public class MainActivity extends AppCompatActivity {
             if (jogador.getNome().equals(nome.getText().toString())
                     && jogador.getSenha().equals(senha.getText().toString())){
                 IniciaPerfil();
-//                setContentView(R.layout.perfiljogador);
-//                Log.i("avancar:","avançou para tela visao geral");
-//                botaosair=findViewById(R.id.sairToEntrarId);
-//                botaosair.setOnClickListener(chamadaVoltarInicio);
-//                botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
-//                botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
-//                botaoCriatura1.setOnClickListener(chamadaCriatura);
-//                botaoCriatura2.setOnClickListener(chamadaCriatura);
-//                botaoCriatura3.setOnClickListener(chamadaCriatura);
-//                visaogeralNome=findViewById(R.id.visaogeralNomeId);
-//                visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
-//                visaogeralNome.setText(jogador.getNome().toString());
-//                visaogeralApelido.setText(jogador.getApelido().toString());
-
             }else {
                 Toast.makeText(getApplicationContext(),"Erro, tente novamente!",Toast.LENGTH_SHORT).show();
             }
@@ -148,20 +144,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             IniciaPerfil();
-//            setContentView(R.layout.perfiljogador);
-//            Log.i("voltar: ","voltou para visualizacriatura");
-//            botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
-//            botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
-//
-//            botaoCriatura1.setOnClickListener(chamadaCriatura);
-//            botaoCriatura2.setOnClickListener(chamadaCriatura);
-//            botaoCriatura3.setOnClickListener(chamadaCriatura);
-//            botaosair=findViewById(R.id.sairToEntrarId);
-//            botaosair.setOnClickListener(chamadaVoltarInicio);
-//            visaogeralNome=findViewById(R.id.visaogeralNomeId);
-//            visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
-//            visaogeralNome.setText(jogador.getNome().toString());
-//            visaogeralApelido.setText(jogador.getApelido().toString());
         }
     };
 
@@ -189,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
             jogador.setEmail(email.getText().toString());
             setContentView(R.layout.cadastrojogador2);
             Log.i("avança: ", "foi para parte 2 do cadastrojogador: "+jogador.getNome());
+
             botaoFinalizaCadastro=findViewById(R.id.botaoFinalizaCadastroId);
             botaoFinalizaCadastro.setOnClickListener(chamadaFimCadastro);
             cadastroParte2Nome=findViewById(R.id.cadastroParte2NomeId);
@@ -206,6 +189,49 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    public View.OnClickListener chamadaTelaLoja=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            setContentView(R.layout.lojaitens);
+            botaoVoltar=findViewById(R.id.botaoVoltar);
+            botaoVoltar.setOnClickListener(chamadaCriaturaVoltar);
+
+            pilas=findViewById(R.id.pilasJogador);
+            pilas.setText(Integer.toString(jogador.getPontos()));
+
+            valor=findViewById(R.id.valorBolaVerm);
+            valor.setText(Integer.toString(startItens.get(0).getValor()));
+
+            valor=findViewById(R.id.valorBolaAzul);
+            valor.setText(Integer.toString(startItens.get(1).getValor()));
+
+            valor=findViewById(R.id.valorBolaAmarela);
+            valor.setText(Integer.toString(startItens.get(2).getValor()));
+
+            valor=findViewById(R.id.valorMelanciaLeite);
+            valor.setText(Integer.toString(startItens.get(3).getValor()));
+
+            valor=findViewById(R.id.valorOvo);
+            valor.setText(Integer.toString(startItens.get(4).getValor()));
+
+            addBolaVer=findViewById(R.id.addBolaVerm);
+            addBolaVer.setOnClickListener(adicionaBolaVermelha);
+
+            addBolaAma=findViewById(R.id.addBolaAma);
+            addBolaAzu=findViewById(R.id.addBolaAzul);
+            addMelLeit=findViewById(R.id.addMelLeit);
+            addOvoYosh=findViewById(R.id.addOvoYoshi);
+        }
+    };
+
+    public View.OnClickListener adicionaBolaVermelha= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            int item = jogador.getItens().get(0).getQuantItem();
+            item++;
+        }
+    };
+
     public View.OnClickListener chamadaFimCadastro=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -220,9 +246,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.perfiljogador);
         botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
         botaoCriatura2=findViewById(R.id.botaoCriatura2Id);
+        botaoLoja=findViewById(R.id.btnLoja);
 
         botaoCriatura1.setOnClickListener(chamadaCriatura);
         botaoCriatura2.setOnClickListener(chamadaCriatura);
+        botaoLoja.setOnClickListener(chamadaTelaLoja);
+
         botaosair=findViewById(R.id.sairToEntrarId);
         botaosair.setOnClickListener(chamadaVoltarInicio);
         visaogeralNome=findViewById(R.id.visaogeralNomeId);

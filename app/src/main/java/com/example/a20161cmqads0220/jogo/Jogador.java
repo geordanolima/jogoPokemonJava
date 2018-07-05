@@ -11,7 +11,7 @@ public class Jogador {
     private String apelido;
     private String email;
     private String senha;
-    private int pontos;
+    private int pontos = 1000;
     private ArrayList<criatura>Criaturas;
     private ArrayList<Itens> itens;
 

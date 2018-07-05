@@ -61,6 +61,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/texto_pontos"
                     android:textSize="@dimen/tamanho_texto" />
+
+                <TextView
+                    android:id="@+id/visaogeralPontos2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="valor"
+                    android:textSize="@dimen/tamanho_texto" />
             </GridLayout>
 
             <TextView
