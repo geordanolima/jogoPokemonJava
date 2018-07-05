@@ -247,30 +247,41 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             incrementaItem(0);
+            valor=findViewById(R.id.qtdBolaVerm);
+            Log.i("bolaRed"," ... "+jogador.getItens().get(0).getQuantItem());
+            valor.setText(Integer.toString(jogador.getItens().get(0).getQuantItem()));
         }
     };
     public View.OnClickListener adicionaBolaAmarelo= new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             incrementaItem(1);
+            valor=findViewById(R.id.qtdBolaAmarela);
+            valor.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
         }
     };
     public View.OnClickListener adicionaBolaAzul= new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             incrementaItem(2);
+            valor=findViewById(R.id.qtdBolaAzul);
+            valor.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
         }
     };
     public View.OnClickListener adicionaMelanciaLeite= new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             incrementaItem(3);
+            valor=findViewById(R.id.qtdMelanciaLeite);
+            valor.setText(Integer.toString(jogador.getItens().get(3).getQuantItem()));
         }
     };
     public View.OnClickListener adicionaOvo= new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             incrementaItem(4);
+            valor=findViewById(R.id.qtdOvo);
+            valor.setText(Integer.toString(jogador.getItens().get(4).getQuantItem()));
         }
     };
     public void incrementaItem(int i) {
