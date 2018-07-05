@@ -218,19 +218,57 @@ public class MainActivity extends AppCompatActivity {
             addBolaVer.setOnClickListener(adicionaBolaVermelha);
 
             addBolaAma=findViewById(R.id.addBolaAma);
+            addBolaAma.setOnClickListener(adicionaBolaAmarelo);
+
             addBolaAzu=findViewById(R.id.addBolaAzul);
+            addBolaAzu.setOnClickListener(adicionaBolaAzul);
+
             addMelLeit=findViewById(R.id.addMelLeit);
+            addMelLeit.setOnClickListener(adicionaMelanciaLeite);
+
             addOvoYosh=findViewById(R.id.addOvoYoshi);
+            addOvoYosh.setOnClickListener(adicionaOvo);
+
         }
     };
 
     public View.OnClickListener adicionaBolaVermelha= new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            int item = jogador.getItens().get(0).getQuantItem();
-            item++;
+            incrementaItem(0);
         }
     };
+    public View.OnClickListener adicionaBolaAmarelo= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            incrementaItem(1);
+        }
+    };
+    public View.OnClickListener adicionaBolaAzul= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            incrementaItem(2);
+        }
+    };
+    public View.OnClickListener adicionaMelanciaLeite= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            incrementaItem(3);
+        }
+    };
+    public View.OnClickListener adicionaOvo= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            incrementaItem(4);
+        }
+    };
+    public void incrementaItem(int i) {
+        int item = jogador.getItens().get(i).getQuantItem();
+        item++;
+        jogador.getItens().get(i).setQuantItem(item);
+        jogador.setPontos(jogador.getPontos() - jogador.getItens().get(i).getValor());
+        pilas.setText(Integer.toString(jogador.getPontos()));
+    }
 
     public View.OnClickListener chamadaFimCadastro=new View.OnClickListener() {
         @Override
