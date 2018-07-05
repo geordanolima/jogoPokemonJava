@@ -75,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
         startCriatura.add(c3);
 
         startItens = new ArrayList();
-        Itens i1 = new Itens();
-        Itens i2 = new Itens();
-        Itens i3 = new Itens();
-        Itens i4 = new Itens();
-        Itens i5 = new Itens();
+        Itens i1 = new Itens("Pokebola Vermelha",0,10);
+        Itens i2 = new Itens("Pokebola Azul",0,20);
+        Itens i3 = new Itens("Pokebola Amarela",0,30);
+        Itens i4 = new Itens("Melancia C/ Leite",0,15);
+        Itens i5 = new Itens("Ovo do Yoshi",0,50);
 
         startItens.add(i1);
         startItens.add(i2);
@@ -201,18 +201,29 @@ public class MainActivity extends AppCompatActivity {
 
             valor=findViewById(R.id.valorBolaVerm);
             valor.setText(Integer.toString(startItens.get(0).getValor()));
+            valor=findViewById(R.id.qtdBolaVerm);
+            valor.setText(Integer.toString(jogador.getItens().get(0).getQuantItem()));
 
-            valor=findViewById(R.id.valorBolaAzul);
+            valor=findViewById(R.id.qtdBolaAzul);
             valor.setText(Integer.toString(startItens.get(1).getValor()));
+            valor=findViewById(R.id.qtdBolaAzul);
+            valor.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
 
             valor=findViewById(R.id.valorBolaAmarela);
             valor.setText(Integer.toString(startItens.get(2).getValor()));
+            valor=findViewById(R.id.qtdBolaAmarela);
+            valor.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
 
             valor=findViewById(R.id.valorMelanciaLeite);
             valor.setText(Integer.toString(startItens.get(3).getValor()));
+            valor=findViewById(R.id.qtdMelanciaLeite);
+            valor.setText(Integer.toString(jogador.getItens().get(3).getQuantItem()));
 
             valor=findViewById(R.id.valorOvo);
             valor.setText(Integer.toString(startItens.get(4).getValor()));
+            valor=findViewById(R.id.qtdOvo);
+            valor.setText(Integer.toString(jogador.getItens().get(4).getQuantItem()));
+
 
             addBolaVer=findViewById(R.id.addBolaVerm);
             addBolaVer.setOnClickListener(adicionaBolaVermelha);

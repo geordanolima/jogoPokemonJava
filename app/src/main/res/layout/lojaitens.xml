@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="112dp"
+                android:layout_marginStart="77dp"
                 android:text="Item"
                 android:textSize="30sp" />
 
@@ -48,7 +48,17 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginEnd="51dp"
+                android:layout_marginEnd="97dp"
+                android:text="Qtd"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/valor2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="14dp"
                 android:text="Valor"
                 android:textSize="30sp" />
         </RelativeLayout>
@@ -59,7 +69,7 @@
 
             <ImageView
                 android:id="@+id/PokeRed"
-                android:layout_width="65dp"
+                android:layout_width="50dp"
                 android:layout_height="65dp"
                 app:srcCompat="@drawable/pokebola_red" />
 
@@ -73,12 +83,22 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/qtdBolaVerm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="103dp"
+                android:text="@string/ValorPokVer"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/valorBolaVerm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="75dp"
+                android:layout_marginEnd="55dp"
                 android:text="@string/ValorPokVer"
                 android:textSize="20sp" />
 
@@ -101,7 +121,7 @@
 
             <ImageView
                 android:id="@+id/PokeBlue"
-                android:layout_width="65dp"
+                android:layout_width="50dp"
                 android:layout_height="65dp"
                 app:srcCompat="@drawable/pokebola_blue" />
 
@@ -115,12 +135,22 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/qtdBolaAzul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="103dp"
+                android:text="@string/ValorPokeAzu"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/valorBolaAzul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="75dp"
+                android:layout_marginEnd="55dp"
                 android:text="@string/ValorPokeAzu"
                 android:textSize="20sp" />
 
@@ -142,7 +172,7 @@
 
             <ImageView
                 android:id="@+id/PokeAmar"
-                android:layout_width="65dp"
+                android:layout_width="50dp"
                 android:layout_height="65dp"
                 app:srcCompat="@drawable/ultraball" />
 
@@ -156,12 +186,22 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/qtdBolaAmarela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="104dp"
+                android:text="@string/ValorPokAma"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/valorBolaAmarela"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="75dp"
+                android:layout_marginEnd="55dp"
                 android:text="@string/ValorPokAma"
                 android:textSize="20sp" />
 
@@ -183,7 +223,7 @@
 
             <ImageView
                 android:id="@+id/Melancia"
-                android:layout_width="65dp"
+                android:layout_width="50dp"
                 android:layout_height="65dp"
                 app:srcCompat="@drawable/melancialeite" />
 
@@ -198,12 +238,22 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/qtdMelanciaLeite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="105dp"
+                android:text="@string/ValorMelancia"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/valorMelanciaLeite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="75dp"
+                android:layout_marginEnd="55dp"
                 android:text="@string/ValorMelancia"
                 android:textSize="20sp" />
 
@@ -225,7 +275,7 @@
 
             <ImageView
                 android:id="@+id/Ovo"
-                android:layout_width="65dp"
+                android:layout_width="50dp"
                 android:layout_height="65dp"
                 app:srcCompat="@drawable/ovo" />
 
@@ -239,12 +289,22 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/qtdOvo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="105dp"
+                android:text="@string/ValorOvo"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/valorOvo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="75dp"
+                android:layout_marginEnd="55dp"
                 android:text="@string/ValorOvo"
                 android:textSize="20sp" />
 
