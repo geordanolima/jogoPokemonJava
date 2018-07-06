@@ -1,10 +1,13 @@
 package com.example.a20161cmqads0220.jogo;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
     private Button addBolaAzu;
     private Button addMelLeit;
     private Button addOvoYosh;
+
+    private ImageView remBolaVer;
+    private ImageView remBolaAma;
+    private ImageView remBolaAzu;
+    private ImageView remMelLeit;
+    private ImageView remOvoYosh;
+
 
     private TextView nome;
     private TextView senha;
@@ -292,6 +302,55 @@ public class MainActivity extends AppCompatActivity {
         pilas.setText(Integer.toString(jogador.getPontos()));
     }
 
+    public View.OnClickListener removeBolaVermelha = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            decrementaItem(0);
+            valor=findViewById(R.id.QuantBolaVermelha);
+            valor.setText(Integer.toString(jogador.getItens().get(0).getQuantItem()));
+        }
+    };
+    public View.OnClickListener removeBolaAzul = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            decrementaItem(1);
+            valor=findViewById(R.id.QuantBolaAmarela);
+            valor.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
+        }
+    };
+    public View.OnClickListener removeBolaAmarela = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            decrementaItem(2);
+            valor=findViewById(R.id.QuantBolaAzul);
+            valor.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
+        }
+    };
+    public View.OnClickListener removeMelancia = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            decrementaItem(3);
+            valor=findViewById(R.id.QuantMelancia);
+            valor.setText(Integer.toString(jogador.getItens().get(3).getQuantItem()));
+        }
+    };
+    public View.OnClickListener removeOvo = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            decrementaItem(4);
+            valor=findViewById(R.id.QuantOvo);
+            valor.setText(Integer.toString(jogador.getItens().get(4).getQuantItem()));
+        }
+    };
+
+    public void decrementaItem(int i) {
+        int item = jogador.getItens().get(i).getQuantItem();
+        item--;
+        jogador.getItens().get(i).setQuantItem(item);
+        jogador.setPontos(jogador.getPontos() + (jogador.getItens().get(i).getValor())/2);
+        pilas.setText(Integer.toString(jogador.getPontos()));
+    }
+
     public View.OnClickListener chamadaFimCadastro=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -324,30 +383,45 @@ public class MainActivity extends AppCompatActivity {
         } else {
             TextView qtd = (TextView)findViewById(R.id.QuantBolaVermelha);
             qtd.setText(Integer.toString(jogador.getItens().get(0).getQuantItem()));
+
+            remBolaVer=findViewById(R.id.remBolaVer);
+            remBolaVer.setOnClickListener(removeBolaVermelha);
         }
         if (jogador.getItens().get(1).getQuantItem() == 0 ){
             findViewById(R.id.idBolinhaAmarela).setVisibility(View.GONE);
         } else {
             TextView qtd = (TextView)findViewById(R.id.QuantBolaAmarela);
             qtd.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
+
+            remBolaAma=findViewById(R.id.remBolaAzu);
+            remBolaAma.setOnClickListener(removeBolaAzul);
         }
         if (jogador.getItens().get(2).getQuantItem() == 0 ){
             findViewById(R.id.idBolinhaAzul).setVisibility(View.GONE);
         } else {
             TextView qtd = (TextView)findViewById(R.id.QuantBolaAzul);
             qtd.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
+
+            remBolaAzu=findViewById(R.id.remBolaAma);
+            remBolaAzu.setOnClickListener(removeBolaAmarela);
         }
         if (jogador.getItens().get(3).getQuantItem() == 0 ){
             findViewById(R.id.idMelancia).setVisibility(View.GONE);
         } else {
             TextView qtd = (TextView)findViewById(R.id.QuantMelancia);
             qtd.setText(Integer.toString(jogador.getItens().get(3).getQuantItem()));
+
+            remMelLeit=findViewById(R.id.remMel);
+            remMelLeit.setOnClickListener(removeMelancia);
         }
         if (jogador.getItens().get(4).getQuantItem() == 0 ){
             findViewById(R.id.idOvo).setVisibility(View.GONE);
         } else {
             TextView qtd = (TextView)findViewById(R.id.QuantOvo);
             qtd.setText(Integer.toString(jogador.getItens().get(4).getQuantItem()));
+
+            remOvoYosh=findViewById(R.id.remOvo);
+            remOvoYosh.setOnClickListener(removeOvo);
         }
     }
 
