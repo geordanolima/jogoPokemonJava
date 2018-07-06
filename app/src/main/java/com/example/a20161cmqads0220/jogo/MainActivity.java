@@ -238,11 +238,11 @@ public class MainActivity extends AppCompatActivity {
             addBolaVer=findViewById(R.id.addBolaVerm);
             addBolaVer.setOnClickListener(adicionaBolaVermelha);
 
-            addBolaAma=findViewById(R.id.addBolaAma);
-            addBolaAma.setOnClickListener(adicionaBolaAmarelo);
-
             addBolaAzu=findViewById(R.id.addBolaAzul);
             addBolaAzu.setOnClickListener(adicionaBolaAzul);
+
+            addBolaAma=findViewById(R.id.addBolaAma);
+            addBolaAma.setOnClickListener(adicionaBolaAmarelo);
 
             addMelLeit=findViewById(R.id.addMelLeit);
             addMelLeit.setOnClickListener(adicionaMelanciaLeite);
@@ -262,19 +262,19 @@ public class MainActivity extends AppCompatActivity {
             valor.setText(Integer.toString(jogador.getItens().get(0).getQuantItem()));
         }
     };
-    public View.OnClickListener adicionaBolaAmarelo= new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            incrementaItem(1);
-            valor=findViewById(R.id.qtdBolaAmarela);
-            valor.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
-        }
-    };
     public View.OnClickListener adicionaBolaAzul= new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            incrementaItem(2);
+            incrementaItem(1);
             valor=findViewById(R.id.qtdBolaAzul);
+            valor.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
+        }
+    };
+    public View.OnClickListener adicionaBolaAmarelo= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            incrementaItem(2);
+            valor=findViewById(R.id.qtdBolaAmarela);
             valor.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
         }
     };
