@@ -315,6 +315,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             decrementaItem(1);
             valor=findViewById(R.id.QuantBolaAmarela);
+
             valor.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
         }
     };
