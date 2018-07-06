@@ -68,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:text="valor"
                     android:textSize="@dimen/tamanho_texto" />
+
             </GridLayout>
 
             <TextView
@@ -148,16 +149,16 @@
 
                     <TextView
                         android:id="@+id/ItemBolaVermelha"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginEnd="84dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/PokVer"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/QuantBolaVermelha"
+                        app:layout_constraintStart_toEndOf="@+id/imgBolaVermelha"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -167,12 +168,9 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/ItemBolaVermelha"
-                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.454"
@@ -180,13 +178,14 @@
 
                     <TextView
                         android:id="@+id/QuantBolaVermelha"
-                        android:layout_width="48dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginTop="8dp"
+                        android:text="0"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/remBolaVer"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -218,41 +217,41 @@
                         android:layout_height="45dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        app:srcCompat="@drawable/ultraball"
-                        tools:layout_editor_absoluteX="8dp"
-                        tools:layout_editor_absoluteY="8dp" />
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ultraball" />
 
                     <TextView
                         android:id="@+id/QuantBolaAmarela"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:text="0"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/remBolaAma"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/ItemBolaAmarela"
-                        android:layout_width="wrap_content"
-                        android:layout_height="16dp"
+                        android:layout_width="150dp"
+                        android:layout_height="23dp"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginEnd="80dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/PokAma"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/QuantBolaAmarela"
-                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toEndOf="@+id/imgBolaAmarela"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.476" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
                         android:id="@+id/remBolaAma"
@@ -277,16 +276,16 @@
 
                     <TextView
                         android:id="@+id/QuantBolaAzul"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginStart="108dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:text="0"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/ItemBolaAzul"
+                        app:layout_constraintEnd_toStartOf="@+id/remBolaAzu"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -305,12 +304,12 @@
 
                     <TextView
                         android:id="@+id/ItemBolaAzul"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginStart="28dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/PokAzu"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -319,17 +318,15 @@
 
                     <ImageView
                         android:id="@+id/remBolaAzu"
-                        android:layout_width="wrap_content"
+                        android:layout_width="32dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/QuantBolaAzul"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.461"
                         app:srcCompat="@android:drawable/ic_menu_delete" />
@@ -356,12 +353,12 @@
 
                     <TextView
                         android:id="@+id/itemMelancia"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginStart="28dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/Melancia"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -370,16 +367,16 @@
 
                     <TextView
                         android:id="@+id/QuantMelancia"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginStart="88dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:text="0"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/itemMelancia"
+                        app:layout_constraintEnd_toStartOf="@+id/remMel"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -390,12 +387,9 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.6"
-                        app:layout_constraintStart_toEndOf="@+id/QuantMelancia"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.461"
                         app:srcCompat="@android:drawable/ic_menu_delete" />
@@ -408,16 +402,16 @@
 
                     <TextView
                         android:id="@+id/QuantOvo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginStart="116dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:text="0"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/ItemOvo"
+                        app:layout_constraintEnd_toStartOf="@+id/remOvo"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -437,18 +431,16 @@
 
                     <TextView
                         android:id="@+id/ItemOvo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginStart="28dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/OvoYoshi"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imgOvo"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.538" />
+                        tools:layout_editor_absoluteX="81dp" />
 
                     <ImageView
                         android:id="@+id/remOvo"
@@ -458,12 +450,9 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/QuantOvo"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.461"
                         app:srcCompat="@android:drawable/ic_menu_delete" />

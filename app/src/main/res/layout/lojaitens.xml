@@ -231,9 +231,8 @@
                 android:id="@+id/nomeItem4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="74dp"
+                android:layout_toEndOf="@+id/Melancia"
                 android:text="@string/Melancia"
                 android:textSize="20sp" />
 
