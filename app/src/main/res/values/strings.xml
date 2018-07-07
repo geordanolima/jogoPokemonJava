@@ -13,11 +13,14 @@
     <string name="texto_apelido">Apelido</string>
     <string name="texto_sair">Sair</string>
     <string name="texto_pontos">Pilas</string>
+    <string name="texto_valor">Vlr</string>
+    <string name="mais">+</string>
     <string name="texto_criaturas_capturadas">Criaturas Capturadas</string>
     <string name="texto_ver">Ver</string>
     <string name="texto_criatura_x">Criatura X</string>
     <string name="texto_itens">Itens</string>
-    <string name="texto_quant">Quant</string>
+    <string name="texto_quant">Qtd</string>
+    <string name="texto_item">item</string>
     <string name="texto_mundo">Mundo</string>
     <string name="texto_usar_item">Usar Item</string>
     <string name="texto_nome_criatura">Nome Criatura</string>
