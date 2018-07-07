@@ -73,7 +73,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/visaogeralPontos2"
+                        android:id="@+id/visaogeralPila"
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
@@ -99,14 +99,14 @@
                 android:padding="@dimen/padding_botao"
                 android:text="@string/texto_criaturas_capturadas"
                 android:textSize="@dimen/tamanho_texto"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/background_light"
                 android:columnCount="2"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/textView10"

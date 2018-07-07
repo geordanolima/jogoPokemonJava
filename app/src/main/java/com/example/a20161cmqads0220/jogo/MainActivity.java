@@ -295,52 +295,76 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     public void incrementaItem(int i) {
-        int item = jogador.getItens().get(i).getQuantItem();
-        item++;
-        jogador.getItens().get(i).setQuantItem(item);
-        jogador.setPontos(jogador.getPontos() - jogador.getItens().get(i).getValor());
-        pilas.setText(Integer.toString(jogador.getPontos()));
+        if (jogador.getItens().get(i).getValor() <= jogador.getPontos()) {
+            int item = jogador.getItens().get(i).getQuantItem();
+            item++;
+            jogador.getItens().get(i).setQuantItem(item);
+            jogador.setPontos(jogador.getPontos() - jogador.getItens().get(i).getValor());
+            pilas.setText(Integer.toString(jogador.getPontos()));
+        } else {
+            Toast.makeText(getApplicationContext(),"Faça hoje seu cartão Jogo dos Bixo Gold",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public View.OnClickListener removeBolaVermelha = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             decrementaItem(0);
-            valor=findViewById(R.id.QuantBolaVermelha);
-            valor.setText(Integer.toString(jogador.getItens().get(0).getQuantItem()));
+            if (jogador.getItens().get(0).getQuantItem() > 0) {
+                valor = findViewById(R.id.QuantBolaVermelha);
+                valor.setText(Integer.toString(jogador.getItens().get(0).getQuantItem()));
+            } else {
+                findViewById(R.id.idBolinhaVermelha).setVisibility(View.GONE);
+            }
         }
     };
     public View.OnClickListener removeBolaAzul = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             decrementaItem(1);
-            valor=findViewById(R.id.QuantBolaAmarela);
-
-            valor.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
+            if (jogador.getItens().get(1).getQuantItem() > 0) {
+                valor=findViewById(R.id.QuantBolaAzul);
+                valor.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
+            } else {
+                findViewById(R.id.idBolinhaAzul).setVisibility(View.GONE);
+            }
         }
     };
     public View.OnClickListener removeBolaAmarela = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             decrementaItem(2);
-            valor=findViewById(R.id.QuantBolaAzul);
-            valor.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
+            if (jogador.getItens().get(2).getQuantItem() > 0) {
+                valor = findViewById(R.id.QuantBolaAmarela);
+
+                valor.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
+            } else {
+                findViewById(R.id.idBolinhaAmarela).setVisibility(View.GONE);
+            }
         }
     };
     public View.OnClickListener removeMelancia = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             decrementaItem(3);
-            valor=findViewById(R.id.QuantMelancia);
-            valor.setText(Integer.toString(jogador.getItens().get(3).getQuantItem()));
+            if (jogador.getItens().get(3).getQuantItem() > 0) {
+                valor = findViewById(R.id.QuantMelancia);
+                valor.setText(Integer.toString(jogador.getItens().get(3).getQuantItem()));
+            } else {
+                findViewById(R.id.idMelancia).setVisibility(View.GONE);
+            }
         }
     };
     public View.OnClickListener removeOvo = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             decrementaItem(4);
-            valor=findViewById(R.id.QuantOvo);
-            valor.setText(Integer.toString(jogador.getItens().get(4).getQuantItem()));
+            if (jogador.getItens().get(4).getQuantItem() > 0) {
+                valor = findViewById(R.id.QuantOvo);
+                valor.setText(Integer.toString(jogador.getItens().get(4).getQuantItem()));
+            } else {
+                findViewById(R.id.idOvo).setVisibility(View.GONE);
+            }
         }
     };
 
@@ -350,6 +374,9 @@ public class MainActivity extends AppCompatActivity {
         jogador.getItens().get(i).setQuantItem(item);
         jogador.setPontos(jogador.getPontos() + (jogador.getItens().get(i).getValor())/2);
         pilas.setText(Integer.toString(jogador.getPontos()));
+
+        valor = findViewById(R.id.visaogeralPila);
+        valor.setText(Integer.toString(jogador.getPontos()));
     }
 
     public View.OnClickListener chamadaFimCadastro=new View.OnClickListener() {
@@ -379,6 +406,9 @@ public class MainActivity extends AppCompatActivity {
         visaogeralNome.setText(jogador.getNome().toString());
         visaogeralApelido.setText(jogador.getApelido().toString());
 
+        valor = findViewById(R.id.visaogeralPila);
+        valor.setText(Integer.toString(jogador.getPontos()));
+
         if ( jogador.getItens().get(0).getQuantItem() == 0 ){
             findViewById(R.id.idBolinhaVermelha).setVisibility(View.GONE);
         } else {
@@ -389,22 +419,22 @@ public class MainActivity extends AppCompatActivity {
             remBolaVer.setOnClickListener(removeBolaVermelha);
         }
         if (jogador.getItens().get(1).getQuantItem() == 0 ){
-            findViewById(R.id.idBolinhaAmarela).setVisibility(View.GONE);
-        } else {
-            TextView qtd = (TextView)findViewById(R.id.QuantBolaAmarela);
-            qtd.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
-
-            remBolaAma=findViewById(R.id.remBolaAzu);
-            remBolaAma.setOnClickListener(removeBolaAzul);
-        }
-        if (jogador.getItens().get(2).getQuantItem() == 0 ){
             findViewById(R.id.idBolinhaAzul).setVisibility(View.GONE);
         } else {
             TextView qtd = (TextView)findViewById(R.id.QuantBolaAzul);
+            qtd.setText(Integer.toString(jogador.getItens().get(1).getQuantItem()));
+
+            remBolaAzu=findViewById(R.id.remBolaAzu);
+            remBolaAzu.setOnClickListener(removeBolaAzul);
+        }
+        if (jogador.getItens().get(2).getQuantItem() == 0 ){
+            findViewById(R.id.idBolinhaAmarela).setVisibility(View.GONE);
+        } else {
+            TextView qtd = (TextView)findViewById(R.id.QuantBolaAmarela);
             qtd.setText(Integer.toString(jogador.getItens().get(2).getQuantItem()));
 
-            remBolaAzu=findViewById(R.id.remBolaAma);
-            remBolaAzu.setOnClickListener(removeBolaAmarela);
+            remBolaAma=findViewById(R.id.remBolaAma);
+            remBolaAma.setOnClickListener(removeBolaAmarela);
         }
         if (jogador.getItens().get(3).getQuantItem() == 0 ){
             findViewById(R.id.idMelancia).setVisibility(View.GONE);
