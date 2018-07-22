@@ -1,13 +1,16 @@
 package com.example.a20161cmqads0220.jogo;
 
-import android.media.Image;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,12 +55,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView pilas;
     private TextView valor;
     Jogador jogador = new Jogador();
-    private ArrayList<criatura> startCriatura;
+    private ArrayList<Criatura> startCriatura;
     private ArrayList<Itens> startItens;
     private TextView cadastroCriatura1;
     private TextView cadastroCriatura2;
     private TextView cadastroCriatura3;
 
+    private ListView lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
         jogador.setApelido("teste");
         jogador.setEmail("email@teste.com");
         startCriatura =new ArrayList(); // INICIALIZA
-        criatura c1=new criatura();
-        criatura c2=new criatura();
-        criatura c3=new criatura();
+        Criatura c1=new Criatura();
+        Criatura c2=new Criatura();
+        Criatura c3=new Criatura();
         c1.setNomeCriatura("monstro 1");
         c2.setNomeCriatura("monstro 2");
         c3.setNomeCriatura("monstro 3");
@@ -188,13 +192,22 @@ public class MainActivity extends AppCompatActivity {
             cadastroParte2Apelido=findViewById(R.id.cadastroParte2ApelidoId);
             cadastroParte2Nome.setText(jogador.getNome().toString());
             cadastroParte2Apelido.setText(jogador.getApelido().toString());
-            cadastroCriatura1=findViewById(R.id.cadastroCriatura1Id);
-            cadastroCriatura2=findViewById(R.id.cadastroCriatura2Id);
-            cadastroCriatura3=findViewById(R.id.cadastroCriatura3Id);
-            cadastroCriatura1.setText(startCriatura.get(0).getNomeCriatura());
-            cadastroCriatura2.setText(startCriatura.get(1).getNomeCriatura());
-            cadastroCriatura3.setText(startCriatura.get(2).getNomeCriatura());
-            jogador.getCriaturas().add(startCriatura.get(0));
+
+            Criatura c1 = new Criatura();
+            Criatura c2 = new Criatura();
+            Criatura c3 = new Criatura();
+            c1.setNomeCriatura("xxx");
+            c2.setNomeCriatura("BCBC");
+            c3.setNomeCriatura("EITA");
+
+            jogador.getCriaturas().add(c1);
+            jogador.getCriaturas().add(c2);
+            jogador.getCriaturas().add(c3);
+
+            lista = findViewById(R.id.listCriatura);
+            CriaturaAdapter listinhaTretosa;
+            listinhaTretosa = new CriaturaAdapter(view.getContext(),jogador.getCriaturas());
+            lista.setAdapter(listinhaTretosa);
 
         }
     };
@@ -302,9 +315,35 @@ public class MainActivity extends AppCompatActivity {
             jogador.setPontos(jogador.getPontos() - jogador.getItens().get(i).getValor());
             pilas.setText(Integer.toString(jogador.getPontos()));
         } else {
-            Toast.makeText(getApplicationContext(),"Faça hoje seu cartão Jogo dos Bixo Gold",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Faça hoje seu* cartão Jogo dos Bixo Gold",Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    public class CriaturaAdapter extends ArrayAdapter<Criatura> {
+
+        private Context context;
+        private ArrayList<Criatura> criaturas = null;
+        public  CriaturaAdapter(Context context,ArrayList<Criatura> criaturas) {
+            super(context, android.R.layout.simple_list_item_1, criaturas);
+            this.context = context;
+            this.criaturas = criaturas;
+        }
+        @Override
+        public  View getView(int position, View view, ViewGroup parent) {
+            final Criatura criatura = criaturas.get(position);
+
+            if (view == null) {
+                view = LayoutInflater.from(context).inflate(R.layout.itemcriatura, null);
+            }
+            TextView nomeCriatura = (TextView) view.findViewById(R.id.nomeCriatura);
+            nomeCriatura.setText(criatura.getNomeCriatura());
+
+            return view;
+        }
+    }
+
+
 
     public View.OnClickListener removeBolaVermelha = new View.OnClickListener() {
         @Override

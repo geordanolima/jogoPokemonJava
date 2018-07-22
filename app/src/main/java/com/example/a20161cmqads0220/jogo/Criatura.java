@@ -6,7 +6,7 @@ import android.widget.ImageView;
  * Created by 20161cmq.ads0220 on 22/06/2018.
  */
 
-public class criatura {
+public class Criatura {
 
     private String nomeCriatura;
     private String ataque;

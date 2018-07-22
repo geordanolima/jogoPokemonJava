@@ -12,11 +12,11 @@ public class Jogador {
     private String email;
     private String senha;
     private int pontos = 1000;
-    private ArrayList<criatura>Criaturas;
+    private ArrayList<Criatura>Criaturas;
     private ArrayList<Itens> itens;
 
 
-    public ArrayList<criatura> getCriaturas() {
+    public ArrayList<Criatura> getCriaturas() {
         return Criaturas;
     }
 
@@ -25,8 +25,8 @@ public class Jogador {
         itens=new ArrayList();
     }
 
-    public void setCriaturas(ArrayList<criatura> criaturas) {
-        Criaturas = criaturas;
+    public void setCriaturas(ArrayList<Criatura> Criaturas) {
+        Criaturas = Criaturas;
     }
 
     public String getNome() {
