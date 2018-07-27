@@ -1,6 +1,7 @@
 package com.example.a20161cmqads0220.jogo;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView cadastroCriatura3;
 
     private ListView lista;
+
+    private SharedPreferences arquivo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,14 +136,17 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             nome=findViewById(R.id.apelidoId);
             senha=findViewById(R.id.nomeId);
+            arquivo = getSharedPreferences("jogador",Context.MODE_PRIVATE);
+
+            jogador.setNome(arquivo.getString("usuario","PokoUsuario"));
+            jogador.setSenha(arquivo.getString("senha","0"));
+
             if (jogador.getNome().equals(nome.getText().toString())
-                    && jogador.getSenha().equals(senha.getText().toString())){
+                    && jogador.getSenha().equals(senha.getText().toString())) {
                 IniciaPerfil();
-            }else {
-                Toast.makeText(getApplicationContext(),"Erro, tente novamente!",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Erro, tente novamente!", Toast.LENGTH_SHORT).show();
             }
-
-
         }
     };
 
@@ -203,6 +209,14 @@ public class MainActivity extends AppCompatActivity {
             jogador.getCriaturas().add(c1);
             jogador.getCriaturas().add(c2);
             jogador.getCriaturas().add(c3);
+
+            arquivo = getSharedPreferences("jogador",Context.MODE_PRIVATE);
+            SharedPreferences.Editor edita = arquivo.edit();
+
+            edita.putString("usuario", jogador.getNome());
+            edita.putString("senha", jogador.getSenha());
+
+            edita.commit();
 
             lista = findViewById(R.id.listCriatura);
             CriaturaAdapter listinhaTretosa;
