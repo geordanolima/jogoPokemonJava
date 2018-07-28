@@ -15,7 +15,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private Button addBolaAzu;
     private Button addMelLeit;
     private Button addOvoYosh;
+
+    private Button botaoAddBixo;
 
     private ImageView remBolaVer;
     private ImageView remBolaAma;
@@ -178,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+
     public View.OnClickListener chamadaCadastroFinal=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -199,16 +210,9 @@ public class MainActivity extends AppCompatActivity {
             cadastroParte2Nome.setText(jogador.getNome().toString());
             cadastroParte2Apelido.setText(jogador.getApelido().toString());
 
-            Criatura c1 = new Criatura();
-            Criatura c2 = new Criatura();
-            Criatura c3 = new Criatura();
-            c1.setNomeCriatura("xxx");
-            c2.setNomeCriatura("BCBC");
-            c3.setNomeCriatura("EITA");
 
-            jogador.getCriaturas().add(c1);
-            jogador.getCriaturas().add(c2);
-            jogador.getCriaturas().add(c3);
+            jogador.setCriaturas(lerArquivo(getFileStreamPath("bixinhos")));
+
 
             arquivo = getSharedPreferences("jogador",Context.MODE_PRIVATE);
             SharedPreferences.Editor edita = arquivo.edit();
@@ -223,6 +227,20 @@ public class MainActivity extends AppCompatActivity {
             listinhaTretosa = new CriaturaAdapter(view.getContext(),jogador.getCriaturas());
             lista.setAdapter(listinhaTretosa);
 
+        }
+    };
+
+    public View.OnClickListener AddBixo = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Criatura cr = new Criatura();
+            cr.setNomeCriatura("criatura " + (int) (Math.random()*11));
+            cr.setAtaque(" " + (int) Math.random()*11);
+            cr.setDefesa(" " + (int) Math.random()*11);
+            cr.setPontos((int) Math.random()*11);
+            cr.setVida(" " +Math.random()*11);
+            jogador.getCriaturas().add(cr);
+            gravaArquivo(getFileStreamPath("bixinhos"), jogador.getCriaturas());
         }
     };
 
@@ -357,7 +375,46 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void gravaArquivo(File arq, ArrayList<Criatura> bixos){
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try{
+            fos = new FileOutputStream(arq);
+            oos = new ObjectOutputStream(fos);
 
+            oos.writeObject(bixos);
+
+            oos.close();
+            fos.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Criatura> lerArquivo(File arq){
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        ArrayList<Criatura> bixinos = new ArrayList<Criatura>();
+        try{
+            fis = new FileInputStream(arq);
+            ois = new ObjectInputStream(fis);
+            while (true) {
+                bixinos.add((Criatura) ois.readObject());
+            }
+        } catch (EOFException e){}
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                ois.close();
+                fis.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return bixinos;
+    }
 
     public View.OnClickListener removeBolaVermelha = new View.OnClickListener() {
         @Override
@@ -452,10 +509,15 @@ public class MainActivity extends AppCompatActivity {
         botaoCriatura2.setOnClickListener(chamadaCriatura);
         botaoLoja.setOnClickListener(chamadaTelaLoja);
 
+        botaoAddBixo = findViewById(R.id.AdicionaBixo);
+        botaoAddBixo.setOnClickListener(AddBixo);
+
         botaosair=findViewById(R.id.sairToEntrarId);
         botaosair.setOnClickListener(chamadaVoltarInicio);
+
         visaogeralNome=findViewById(R.id.visaogeralNomeId);
         visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
+
         visaogeralNome.setText(jogador.getNome().toString());
         visaogeralApelido.setText(jogador.getApelido().toString());
 

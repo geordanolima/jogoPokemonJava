@@ -2,11 +2,13 @@ package com.example.a20161cmqads0220.jogo;
 
 import android.widget.ImageView;
 
+import java.io.Serializable;
+
 /**
  * Created by 20161cmq.ads0220 on 22/06/2018.
  */
 
-public class Criatura {
+public class Criatura  implements Serializable{
 
     private String nomeCriatura;
     private String ataque;
