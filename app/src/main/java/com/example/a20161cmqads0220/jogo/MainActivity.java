@@ -1,7 +1,13 @@
 package com.example.a20161cmqads0220.jogo;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private Button botaoCriatura1;
     private Button botaoCriatura2;
     private Button botaoLoja;
-    private Button botaoCriatura3;
+    private Button botaoMundo;
     private Button botaoCriaturaVoltar;
     private Button botaoCadastrar;
     private Button botaoCadastrarFinal;
@@ -188,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-
     public View.OnClickListener chamadaCadastroFinal=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -224,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
             lista = findViewById(R.id.listCriatura);
             CriaturaAdapter listinhaTretosa;
-            listinhaTretosa = new CriaturaAdapter(view.getContext(),jogador.getCriaturas());
+            listinhaTretosa = new CriaturaAdapter(view.getContext(),lerArquivo(getFileStreamPath("bixinhos")));
             lista.setAdapter(listinhaTretosa);
 
         }
@@ -382,7 +387,9 @@ public class MainActivity extends AppCompatActivity {
             fos = new FileOutputStream(arq);
             oos = new ObjectOutputStream(fos);
 
-            oos.writeObject(bixos);
+            for (Criatura c: bixos) {
+                oos.writeObject(c);
+            }
 
             oos.close();
             fos.close();
@@ -499,6 +506,25 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    public View.OnClickListener chamaGps = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            solicitarPermissao();
+        }
+
+    };
+    public View.OnClickListener chamaMundo = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            IniciaMundo();
+        }
+    };
+    private void IniciaMundo(){
+        setContentView(R.layout.uordi);
+        botaoAvancar= findViewById(R.id.idpegagps);
+        botaoAvancar.setOnClickListener(chamaGps);
+    }
+
     private void IniciaPerfil(){
         setContentView(R.layout.perfiljogador);
         botaoCriatura1=findViewById(R.id.botaoCriatura1Id);
@@ -514,6 +540,9 @@ public class MainActivity extends AppCompatActivity {
 
         botaosair=findViewById(R.id.sairToEntrarId);
         botaosair.setOnClickListener(chamadaVoltarInicio);
+
+        botaoMundo=findViewById(R.id.mundo);
+        botaoMundo.setOnClickListener(chamaMundo);
 
         visaogeralNome=findViewById(R.id.visaogeralNomeId);
         visaogeralApelido=findViewById(R.id.visaogeralApelidoId);
@@ -571,6 +600,49 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void solicitarPermissao() {
+        if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+                && (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        } else {
+            configurarGps();
+        }
+    }
+    private void configurarGps(){
+        try{
+
+            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+        } catch (SecurityException ex){
+            Toast.makeText(this,"Deu treta no GPS!", Toast.LENGTH_LONG).show();
+        }
+    }
+    public LocationListener locationListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(Location location) {
+            double latitude = location.getLatitude();
+            double longitude = location.getLongitude();
+
+            ((TextView)findViewById(R.id.idlon)).setText(Double.toString(longitude));
+            ((TextView)findViewById(R.id.idLat)).setText(Double.toString(latitude));
+
+        }
+
+        @Override
+        public void onStatusChanged(String s, int i, Bundle bundle) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String s) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String s) {
+
+        }
+    };
 
 } // FIM MainActivity
 

@@ -489,6 +489,11 @@
         <Button
             android:id="@+id/AdicionaBixo"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/mundo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/texto_mundo" />
     </LinearLayout>

@@ -25,8 +25,8 @@ public class Jogador {
         itens=new ArrayList();
     }
 
-    public void setCriaturas(ArrayList<Criatura> Criaturas) {
-        Criaturas = Criaturas;
+    public void setCriaturas(ArrayList<Criatura> criaturas) {
+        this.Criaturas = Criaturas;
     }
 
     public String getNome() {
